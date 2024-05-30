@@ -23,7 +23,7 @@ import ReportManage from './ReportManage'
 
 const config = require('../../config.js')
 
-const server = config.local
+const server = config.vercel
 
 const socket = io(server, {
   autoConnect: false

@@ -18,7 +18,7 @@ import Swal from 'sweetalert2'
 
 const config = require('../../config.js')
 
-const server = config.local
+const server = config.vercel
 
 interface Props {
   socket: Socket

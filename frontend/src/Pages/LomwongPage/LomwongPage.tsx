@@ -20,7 +20,7 @@ import Chat from '../../Components/Chat/Chat'
 import { Link } from 'react-router-dom'
 const config = require('../../config.js')
 
-const server = config.local
+const server = config.vercel
 
 interface Props { }
 const socket = io(server, {

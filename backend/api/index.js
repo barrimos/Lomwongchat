@@ -50,8 +50,8 @@ app.use(express.urlencoded({ extended: true }))
 
 if (config.isVercel) {
   app.use( async (req, res, next) => {
-  await mongoose.connect('mongodb://localhost:27017/lomwongchat')
-    // await mongoose.connect(config.mongoUri, config.mongoOptions)
+  // await mongoose.connect('mongodb://localhost:27017/lomwongchat')
+    await mongoose.connect(config.mongoUri, config.mongoOptions)
     return next()
   })
 }

@@ -16,7 +16,7 @@ import { getInputValue } from '../../utils/getInputValue'
 import Loader from '../../Components/Loader/Loader'
 const config = require('../../config.js')
 
-const server =  config.local
+const server =  config.vercel
 
 interface Prop { }
 

@@ -13,7 +13,7 @@ import Button from '../../Components/Button/Button'
 
 const config = require('../../config.js')
 
-const server = config.local
+const server = config.vercel
 
 interface Props { }
 
