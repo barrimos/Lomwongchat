@@ -1,0 +1,524 @@
+@charset "UTF-8";
+#logoutDashboard {
+  background-color: #ff0040;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+}
+
+#formAccess {
+  border-radius: 10px;
+  padding: 5px 10px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border: 1px solid #4d4d4d;
+  box-shadow: 0 4px 8px -4px #1f1f1f;
+}
+#formAccess.light {
+  box-shadow: 0 4px 8px -4px #a6a6a6;
+  border: 1px solid #e8e8e8;
+  background-color: #d9d9d9;
+}
+#formAccess.light .loginFormAso #titleForm .titleHead {
+  color: #575757;
+}
+#formAccess.light .loginFormAso #titleForm .subHead {
+  color: #575757;
+}
+#formAccess.light .loginFormAso #submitAso {
+  background-color: #5c5c5c;
+}
+#formAccess.light .loginFormAso #submitAso[disabled] {
+  background-color: #c7c7c7;
+}
+#formAccess.light .loginFormAso #attempRemains {
+  color: gray;
+}
+#formAccess .loginFormAso {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#formAccess .loginFormAso .inputWrapper {
+  height: auto;
+}
+#formAccess .loginFormAso #titleForm .titleHead {
+  color: #e6e6e6;
+  font-weight: 600;
+  font-size: 1.2em;
+}
+#formAccess .loginFormAso #titleForm .subHead {
+  color: #e6e6e6;
+  font-size: 0.9em;
+}
+#formAccess .loginFormAso .inpPassAso {
+  position: relative;
+}
+#formAccess .loginFormAso .inpPassAso .errorBox {
+  border-radius: 5px !important;
+}
+#formAccess .loginFormAso .sysInput {
+  padding: 5px;
+  width: 100%;
+  border-radius: 5px;
+  border: 0.5px solid #f2f2f2;
+  background-color: #f7f7f7;
+}
+#formAccess .loginFormAso .sysInput:focus {
+  outline: none;
+  background-color: white;
+}
+#formAccess .loginFormAso .sysInput::placeholder {
+  font-size: 0.8em;
+}
+#formAccess .loginFormAso #submitAso {
+  width: 60px;
+  background-color: gray;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 0.9em;
+  color: white;
+  background-color: #424242;
+}
+#formAccess .loginFormAso #submitAso[disabled] {
+  background-color: #828282;
+  color: #a1a1a1;
+}
+#formAccess .loginFormAso #attempRemains {
+  font-size: 0.7em;
+  text-align: right;
+  color: #bfbfbf;
+}
+
+#mainDashboard .modal.reportDashboard {
+  width: 80%;
+  height: 80vh;
+  overflow: scroll;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#mainDashboard .modal.reportDashboard .radioFilterTicketsWrapper {
+  position: relative;
+  margin: 5px;
+  width: 100px;
+}
+#mainDashboard .modal.reportDashboard .radioFilterTicketsWrapper .radioFilterTickets {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+#mainDashboard .modal.reportDashboard .radioFilterTicketsWrapper .labelForRadioFilterTickets {
+  width: 100%;
+  font-size: 0.8em;
+  font-weight: 400;
+  border-radius: 5px;
+  text-align: center;
+  padding: 3px;
+  color: white;
+  margin-bottom: 0;
+}
+#mainDashboard .modal.reportDashboard .radioFilterTicketsWrapper .labelForRadioFilterTickets[for=openTickets] {
+  background-color: #74b474;
+}
+#mainDashboard .modal.reportDashboard .radioFilterTicketsWrapper .labelForRadioFilterTickets[for=openTickets].active {
+  background-color: #00e000;
+}
+#mainDashboard .modal.reportDashboard .radioFilterTicketsWrapper .labelForRadioFilterTickets[for=closedTickets] {
+  background-color: #b47474;
+}
+#mainDashboard .modal.reportDashboard .radioFilterTicketsWrapper .labelForRadioFilterTickets[for=closedTickets].active {
+  background-color: red;
+}
+#mainDashboard .modal.reportDashboard .radioFilterTicketsWrapper .labelForRadioFilterTickets[for=queueTickets] {
+  background-color: gray;
+}
+#mainDashboard .modal.reportDashboard .radioFilterTicketsWrapper .labelForRadioFilterTickets[for=queueTickets].active {
+  background-color: #363636;
+}
+#mainDashboard .modal.reportDashboard #clearFilterTickets {
+  margin: 5px;
+  width: 100px;
+  font-size: 0.8em;
+  font-weight: 400;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  padding: 3px;
+}
+#mainDashboard .modal.reportDashboard .ticketItem {
+  margin: 10px 0;
+}
+#mainDashboard .modal.reportDashboard .ticketItem .ticketSN {
+  margin: 10px 0;
+}
+#mainDashboard .modal.reportDashboard .ticketItem .ticketSN .reportStatus {
+  margin-right: 10px;
+}
+#mainDashboard .modal.reportDashboard .ticketItem .ticketSN .reportStatus.queue {
+  color: #4758eb;
+}
+#mainDashboard .modal.reportDashboard .ticketItem .ticketSN .reportStatus.open {
+  color: var(--green);
+}
+#mainDashboard .modal.reportDashboard .ticketItem .ticketSN .reportStatus.closed {
+  color: var(--red);
+}
+#mainDashboard .modal.reportDashboard .ticketItem .manageReport {
+  padding: 3px 5px;
+  color: white;
+  border-radius: 5px;
+  font-size: 0.75em;
+}
+#mainDashboard .modal.reportDashboard .ticketItem .manageReport#openReportBtn {
+  background-color: #06b706;
+}
+#mainDashboard .modal.reportDashboard .ticketItem .manageReport#terminateReportBtn {
+  background-color: #eb4747;
+}
+#mainDashboard .modal.reportDashboard .ticketItem .manageReport#deleteTicketBtn {
+  background-color: black;
+}
+#mainDashboard .modal.reportDashboard .ticketItem .manageReport + .manageReport {
+  margin-left: 10px;
+}
+#mainDashboard .modal.reportDashboard .ticketItem table {
+  border-collapse: collapse;
+}
+#mainDashboard .modal.reportDashboard .ticketItem table thead {
+  font-weight: 500;
+}
+#mainDashboard .modal.reportDashboard .ticketItem table thead tr {
+  background-color: #e6e6e6;
+}
+#mainDashboard .modal.reportDashboard .ticketItem table tbody tr {
+  background-color: #fcfcfc;
+}
+#mainDashboard .modal.reportDashboard .ticketItem table td {
+  border: none;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 10px 15px;
+}
+#mainDashboard .modal.reportDashboard .searchReportsTicket {
+  padding: 10px;
+  width: 100%;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+#mainDashboard .modal.reportDashboard .searchReportsTicket::-webkit-input-placeholder {
+  color: #c2c2c2;
+}
+#mainDashboard .modal.reportDashboard .empty {
+  width: 100%;
+  height: calc(100% - 150px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f2f2f2;
+  color: #bfbfbf;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+#mainDashboard .boardBox {
+  min-height: 80px;
+  max-height: 120px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+#mainDashboard .boardBox.maxHeight {
+  height: 100%;
+  max-height: none;
+}
+#mainDashboard .boardBox .iconBox {
+  display: block;
+  min-width: 50px;
+  min-height: 50px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#mainDashboard .boardBox .iconBox i {
+  font-size: 2em;
+}
+#mainDashboard .boardBox h5 {
+  font-size: 0.9em;
+  font-weight: 600;
+  margin-left: 10px;
+}
+#mainDashboard .boardBox span {
+  font-size: 2em;
+  font-weight: 900;
+}
+#mainDashboard .boardBox.defaultColor {
+  background-color: #d1e0ff;
+}
+#mainDashboard .boardBox.defaultColor .iconBox {
+  background-color: #4d88ff;
+}
+#mainDashboard .boardBox.defaultColor .iconBox i {
+  color: white;
+}
+#mainDashboard .boardBox.defaultColor h5 {
+  color: #003eb3;
+}
+#mainDashboard .boardBox.defaultColor span {
+  color: #0059ff;
+}
+#mainDashboard .noc {
+  background-color: #b3cdff;
+}
+#mainDashboard .noc .iconBox {
+  background-color: #4d8bff;
+}
+#mainDashboard .noc .iconBox i {
+  color: white;
+}
+#mainDashboard .noc h5 {
+  color: #003eb3;
+}
+#mainDashboard .noc span {
+  color: #0059ff;
+}
+#mainDashboard .nou {
+  background-color: #ffb3c6;
+}
+#mainDashboard .nou .iconBox {
+  background-color: #ff4d79;
+}
+#mainDashboard .nou .iconBox i {
+  color: white;
+}
+#mainDashboard .nou h5 {
+  color: #b3002d;
+}
+#mainDashboard .nou span {
+  color: #ff0040;
+}
+#mainDashboard .uso {
+  background-color: #ffe9b3;
+}
+#mainDashboard .uso .iconBox {
+  background-color: #ffcc4d;
+}
+#mainDashboard .uso .iconBox i {
+  color: white;
+}
+#mainDashboard .uso h5 {
+  color: #b38000;
+}
+#mainDashboard .uso span {
+  color: #ffb700;
+}
+#mainDashboard .rpt {
+  cursor: pointer;
+  background-color: #bfff80;
+}
+#mainDashboard .rpt .iconBox {
+  background-color: #73e600;
+}
+#mainDashboard .rpt .iconBox i {
+  color: white;
+}
+#mainDashboard .rpt h5 {
+  color: #59b300;
+}
+#mainDashboard .rpt span {
+  color: #66cc00;
+}
+#mainDashboard #paginationUserDashboard {
+  margin: 10px auto;
+}
+#mainDashboard #paginationUserDashboard #prevPage, #mainDashboard #paginationUserDashboard #nextPage {
+  width: 50px;
+  height: 30px;
+  background-color: #fafafa;
+}
+#mainDashboard #paginationUserDashboard .paginationNum {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: #ebebeb;
+}
+#mainDashboard #paginationUserDashboard .paginationNum.active {
+  background-color: #fafafa;
+}
+#mainDashboard #paginationUserDashboard #prevPage, #mainDashboard #paginationUserDashboard #nextPage, #mainDashboard #paginationUserDashboard .paginationNum {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#mainDashboard #searchUser {
+  font-size: 0.9em;
+  border-radius: 5px;
+  height: 30px;
+}
+#mainDashboard #searchUser:focus {
+  outline: none;
+}
+#mainDashboard #channelSelect {
+  font-size: 0.9em;
+  border-radius: 5px;
+  width: 120px;
+  height: 30px;
+}
+#mainDashboard #listsPerPage {
+  display: flex;
+  margin-right: 10px;
+}
+#mainDashboard #listsPerPage span {
+  width: 100%;
+  color: #5c5c5c;
+  font-size: 0.8em;
+  margin-left: 10px;
+}
+#mainDashboard .tabsWrapper {
+  display: flex;
+  width: 100%;
+}
+#mainDashboard .tabsWrapper .tabItem {
+  user-select: none;
+  flex: 1 0 auto;
+  margin: 2px;
+  display: block;
+  min-width: 40px;
+  width: calc(25% - 4px);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 5px 15px 5px 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 0.7em;
+  color: #4d4d4d;
+  position: relative;
+}
+#mainDashboard .tabsWrapper .tabItem.active {
+  background-color: #f0f0f0;
+  box-shadow: 0 -2px 4px -1px rgba(128, 128, 128, 0.3);
+}
+#mainDashboard .tabsWrapper .tabItem:hover {
+  background-color: #cfcfcf;
+}
+#mainDashboard .tabsWrapper .tabItem::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  content: "✖";
+  font-size: 1em;
+  top: 0;
+  bottom: 0;
+  right: 5px;
+  cursor: pointer;
+}
+#mainDashboard .tableWrapper {
+  border-radius: 10px;
+  overflow-x: auto;
+}
+#mainDashboard .tableWrapper #tbOp {
+  display: table;
+  min-width: max-content;
+  font-size: 0.9em;
+}
+#mainDashboard .tableWrapper #tbOp th {
+  background-color: #6eb3d4;
+  color: #00527a;
+}
+#mainDashboard .tableWrapper #tbOp th .ascdesBtn {
+  margin-left: 5px;
+}
+#mainDashboard .tableWrapper #tbOp th, #mainDashboard .tableWrapper #tbOp td {
+  border: none;
+}
+#mainDashboard .tableWrapper #tbOp tr:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+#mainDashboard .tableWrapper #tbOp tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+#mainDashboard .tableWrapper #tbOp td {
+  padding: 15px;
+}
+#mainDashboard .tableWrapper #tbOp td .statusName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+}
+#mainDashboard .tableWrapper #tbOp td .statusName.normal {
+  background-color: var(--green);
+}
+#mainDashboard .tableWrapper #tbOp td .statusName.warning {
+  background-color: orange;
+}
+#mainDashboard .tableWrapper #tbOp td .statusName.banned {
+  background-color: red;
+}
+@media screen and (max-width: 576px) {
+  #mainDashboard .tableWrapper #tbOp td {
+    padding: 10px 15px;
+    font-size: 0.8em;
+  }
+}
+#mainDashboard .tableWrapper #tbOp .actionBtns {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+#mainDashboard .tableWrapper #tbOp .actionBtns .actionStatusBtn {
+  margin: 0 10px;
+}
+
+.actionStatusBtn {
+  font-size: 1.4em;
+  color: #d9d9d9;
+}
+.actionStatusBtn.normal.active {
+  color: var(--green);
+}
+.actionStatusBtn.warning.active {
+  color: orange;
+}
+.actionStatusBtn.banned.active {
+  color: red;
+}
+.actionStatusBtn.pm {
+  color: blue;
+  position: relative;
+}
+.actionStatusBtn.pm[data-pm=true]::after {
+  content: "";
+  display: block;
+  position: absolute;
+  clear: both;
+  top: 3px;
+  right: -5px;
+  font-size: 0.5em;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
