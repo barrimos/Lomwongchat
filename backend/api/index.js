@@ -6,7 +6,6 @@ const aso = require('./routers/aso')
 const regisUsername = require('./routers/regisUsername')
 const createChannel = require('./routers/createChannel')
 const fetchChannels = require('./routers/fetchChannels')
-const errorPage = require('./routers/error')
 const auth = require('./routers/auth')
 const reports = require('./routers/reports')
 const logout = require('./routers/logout')
@@ -65,7 +64,9 @@ app.use('/logout', logout)
 app.use('/channels', fetchChannels)
 app.use('/createChannel', createChannel)
 
-app.use('*', errorPage)
+app.use('*', (req, res, next) => {
+  res.status(404).json({ error: 'You Lost' })
+})
 
 io.on('connection', socket => {
   console.log(`${socket.id} connected`)
