@@ -22,7 +22,7 @@ interface Prop { }
 
 const LoginPage = (): JSX.Element => {
   const ref = useRef(false)
-  axios.defaults.withCredentials = true
+
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [isReady, setIsReady] = useState<boolean>(false)
   const [checking, setChecking] = useState<boolean>(false)
@@ -202,7 +202,7 @@ const LoginPage = (): JSX.Element => {
 
   const fetchUsers = async (): Promise<void> => {
     try {
-      const response: AxiosResponse = await axios.get(`${server}/users`, { withCredentials: true })
+      const response: AxiosResponse = await axios.get(`${server}/users`, { headers: { 'Access-Control-Allow-Origin': server }, withCredentials: true })
       setDBUsers(response.data) // Return the data from the response
       // sessionStorage.setItem('dbusers', JSON.stringify(response.data))
       setIsReady(true)
