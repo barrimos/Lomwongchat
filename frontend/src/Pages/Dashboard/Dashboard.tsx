@@ -26,7 +26,10 @@ const config = require('../../config.js')
 const server = config.vercel
 
 const socket = io(server, {
-  autoConnect: false
+  autoConnect: false,
+  extraHeaders: {
+    'Access-Control-Allow-Origin': 'https://lomwongchat.vercel.app',
+  }
 })
 
 interface Props { }

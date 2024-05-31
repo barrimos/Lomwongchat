@@ -26,7 +26,7 @@ interface Props { }
 const socket = io(server, {
   autoConnect: false,
   extraHeaders: {
-    'Access-Control-Allow-Origin': server,
+    'Access-Control-Allow-Origin': 'https://lomwongchat.vercel.app',
   }
 })
 
