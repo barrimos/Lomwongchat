@@ -1,4 +1,4 @@
 module.exports = {
   local: 'http://localhost:8080',
-  vercel: 'https://lomwongchatapp.vercel.app'
+  vercel: 'https://backend-b2atn2cti-barrimos-projects.vercel.app'
 }
