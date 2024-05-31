@@ -28,7 +28,7 @@ const usersJoined = ['']
 
 const options = {
   origin: 'https://lomwongchat.vercel.app',
-  methods: 'GET, POST, DELETE',
+  methods: ['GET', 'POST', 'DELETE'],
   credentials: true
 }
 

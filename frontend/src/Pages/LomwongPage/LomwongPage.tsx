@@ -24,7 +24,10 @@ const server = config.vercel
 
 interface Props { }
 const socket = io(server, {
-  autoConnect: false
+  autoConnect: false,
+  extraHeaders: {
+    'Access-Control-Allow-Origin': server,
+  }
 })
 
 const LomwongPage = (props: Props): JSX.Element => {
