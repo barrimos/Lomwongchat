@@ -27,19 +27,15 @@ const channels = {
 const usersJoined = ['']
 
 const options = {
-  origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://lomwongchat.vercel.app'],
-  methods: 'GET, POST, DELETE',
+  origin: ['https://lomwongchat.vercel.app'],
+  methods: ['GET', 'POST', 'DELETE'],
   credentials: true
 }
 
 const app = express()
 const server = http.createServer(app)
 const io = socket_io(server, {
-  cors: {
-    origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'https://lomwongchat.vercel.app'],
-    methods: ['GET', 'POST', 'DELETE'],
-    credentials: true
-  }
+  cors: options
 })
 
 app.use(cors(options))
