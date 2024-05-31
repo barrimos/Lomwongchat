@@ -202,7 +202,7 @@ const LoginPage = (): JSX.Element => {
 
   const fetchUsers = async (): Promise<void> => {
     try {
-      const response: AxiosResponse = await axios.get(`${server}/users`, { withCredentials: true })
+      const response = await axios.get(`${server}/users`, { withCredentials: true })
       setDBUsers(response.data) // Return the data from the response
       // sessionStorage.setItem('dbusers', JSON.stringify(response.data))
       setIsReady(true)
