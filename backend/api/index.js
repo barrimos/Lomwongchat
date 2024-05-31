@@ -27,7 +27,7 @@ const channels = {
 const usersJoined = ['']
 
 const options = {
-  origin: 'https://lomwongchat-nli0slwdn-barrimos-projects.vercel.app',
+  origin: 'https://lomwongchat.vercel.app/',
   methods: ['GET', 'POST', 'DELETE'],
   credentials: true
 }
