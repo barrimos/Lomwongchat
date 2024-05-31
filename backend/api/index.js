@@ -26,17 +26,19 @@ const channels = {
 }
 const usersJoined = ['']
 
-// const options = {
-//   origin: ['https://lomwongchat.vercel.app'],
-//   methods: ['GET', 'POST', 'DELETE'],
-//   credentials: true
-// }
+const options = {
+  origin: 'https://lomwongchat.vercel.app',
+  methods: 'GET, POST, DELETE',
+  credentials: true
+}
 
 const app = express()
 const server = http.createServer(app)
-const io = socket_io(server)
+const io = socket_io(server, {
+  cors: options
+})
 
-app.use(cors())
+app.use(cors(options))
 app.use(cookieParser())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
