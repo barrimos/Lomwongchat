@@ -22,7 +22,7 @@ interface Prop { }
 
 const LoginPage = (): JSX.Element => {
   const ref = useRef(false)
-
+  axios.defaults.withCredentials = true
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [isReady, setIsReady] = useState<boolean>(false)
   const [checking, setChecking] = useState<boolean>(false)
