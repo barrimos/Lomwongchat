@@ -1,0 +1,544 @@
+#logoutDashboard{
+    background-color: hsl(345, 100%, 50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    color: white;
+}
+
+#formAccess{
+    border-radius: 10px;
+    padding: 5px 10px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border: 1px solid hsl(0, 0%, 30%);
+    box-shadow: 0 4px 8px -4px hsl(0, 0%, 12%);
+    &.light{
+        box-shadow: 0 4px 8px -4px hsl(0, 0%, 65%);
+        border: 1px solid hsl(0, 0%, 91%);
+        background-color: hsl(0, 0%, 85%);
+        .loginFormAso{
+            #titleForm{
+                .titleHead{
+                    color: hsl(0, 0%, 34%);
+                }
+                .subHead{
+                    color: hsl(0, 0%, 34%);
+                }
+            }
+            #submitAso{
+                background-color: hsl(0, 0%, 36%);
+                &[disabled]{
+                    background-color: hsl(0, 0%, 78%);
+                }
+            }
+            #attempRemains{
+                color: gray;
+            }
+        }
+    }
+    .loginFormAso{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .inputWrapper{
+            height: auto;
+        }
+        #titleForm{
+            .titleHead{
+                color: hsl(0, 0%, 90%);
+                font-weight: 600;
+                font-size: 1.2em;
+            }
+            .subHead{
+                color: hsl(0, 0%, 90%);
+                font-size: .9em;
+            }
+        }
+        .inpPassAso{
+            position: relative;
+            .errorBox{
+                border-radius: 5px !important;
+            }
+        }
+        .sysInput{
+            padding: 5px;
+            width: 100%;
+            border-radius: 5px;
+            border: .5px solid hsl(0, 0%, 95%);
+            background-color: hsl(0, 0%, 97%);
+            &:focus{
+                outline: none;
+                background-color: white;
+            }
+            &::placeholder{
+                font-size: .8em;
+            }
+        }
+        #submitAso{
+            width: 60px;
+            background-color: gray;
+            border-radius: 4px;
+            padding: 5px;
+            font-size: .9em;
+            color: white;
+            background-color: hsl(0, 0%, 26%);
+            &[disabled]{
+                background-color: hsl(0, 0%, 51%);
+                color: hsl(0, 0%, 63%);
+            }
+        }
+        #attempRemains{
+            font-size: .7em;
+            text-align: right;
+            color: hsl(0, 0%, 75%);
+        }
+    }
+}
+
+#mainDashboard{
+    .modal.reportDashboard{
+        width: 80%;
+        height: 80vh;
+        overflow: scroll;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .radioFilterTicketsWrapper{
+            position: relative;
+            margin: 5px;
+            width: 100px;
+            .radioFilterTickets{
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                opacity: 0;
+                cursor: pointer;
+            }
+            .labelForRadioFilterTickets{
+                width: 100%;
+                font-size: .8em;
+                font-weight: 400;
+                border-radius: 5px;
+                text-align: center;
+                padding: 3px;
+                color: white;
+                margin-bottom: 0;
+                &[for=openTickets]{
+                    background-color: hsl(120, 30%, 58%);
+                    &.active{
+                        background-color: hsl(120, 100%, 44%);
+                    }
+                }
+                &[for=closedTickets]{
+                    background-color: hsl(0, 30%, 58%);
+                    &.active{
+                        background-color: red;
+                    }
+                }
+                &[for=queueTickets]{
+                    background-color: gray;
+                    &.active{
+                        background-color: rgb(54, 54, 54);
+                    }
+                }
+            }
+        }
+        #clearFilterTickets{
+            margin: 5px;
+            width: 100px;
+            font-size: .8em;
+            font-weight: 400;
+            background-color: hsl(0, 0%, 85%);
+            border-radius: 5px;
+            padding: 3px;
+        }
+
+        .ticketItem{
+            margin: 10px 0;
+            .ticketSN{
+                margin: 10px 0;
+                .reportStatus{
+                    margin-right: 10px;
+                    &.queue{
+                        color: hsl(234, 80%, 60%);
+                    }
+                    &.open{
+                        color: var(--green);
+                    }
+                    &.closed{
+                        color: var(--red);
+                    }
+                }
+            }
+            .manageReport{
+                padding: 3px 5px;
+                color: white;
+                border-radius: 5px;
+                font-size: .75em;
+                &#openReportBtn{
+                    background-color: hsl(120, 94%, 37%);
+                }
+                &#terminateReportBtn{
+                    background-color: hsl(0, 80%, 60%);
+                }
+                &#deleteTicketBtn{
+                    background-color: black;
+                }
+                &+.manageReport{
+                    margin-left: 10px;
+                }
+            }
+            table{
+                border-collapse: collapse;
+                thead{
+                    font-weight: 500;
+                    tr{
+                        background-color: hsl(0, 0%, 90%);
+                    }
+                }
+                tbody{
+                    tr{
+                        background-color: hsl(0, 0%, 99%);
+                    }
+                }
+                td{
+                    border: none;
+                    text-align: center;
+                    font-size: .8em;
+                    padding: 10px 15px;
+                }
+            }
+        }
+        .searchReportsTicket{
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 5px;
+            &::-webkit-input-placeholder{
+                color: hsl(0, 0%, 76%);
+            }
+        }
+        .empty{
+            width: 100%;
+            height: calc(100% - 150px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: hsl(0, 0%, 95%);
+            color: hsl(0, 0%, 75%);
+            font-weight: 600;
+            font-size: 1.5em;
+        }
+    }
+    .boardBox{
+        min-height: 80px;
+        max-height: 120px;
+        padding: 10px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        overflow: hidden;
+        &.maxHeight{
+            height: 100%;
+            max-height: none;
+        }
+        .iconBox{
+            display: block;
+            min-width: 50px;
+            min-height: 50px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            i{
+                font-size: 2em;
+            }
+        }
+        h5{
+            font-size: .9em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+        span{
+            font-size: 2em;
+            font-weight: 900;
+        }
+        &.defaultColor{
+            background-color: hsl(220, 100%, 91%);
+            .iconBox{
+                background-color: hsl(220, 100%, 65%);
+                i{
+                    color: white;
+                }
+            }
+            h5{
+                color: hsl(219, 100%, 35%);
+            }
+            span{
+                color: hsl(219, 100%, 50%);
+            }
+        }
+    }
+    .noc{
+        background-color: hsl(219, 100%, 85%);
+        .iconBox{
+            background-color: hsl(219, 100%, 65%);
+            i{
+                color: white;
+            }
+        }
+        h5{
+            color: hsl(219, 100%, 35%);
+        }
+        span{
+            color: hsl(219, 100%, 50%);
+        }
+    }
+    .nou{
+        background-color: hsl(345, 100%, 85%);
+        .iconBox{
+            background-color: hsl(345, 100%, 65%);
+            i{
+                color: white;
+            }
+        }
+        h5{
+            color: hsl(345, 100%, 35%);
+        }
+        span{
+            color: hsl(345, 100%, 50%);
+        }
+    }
+    .uso{
+        background-color: hsl(43, 100%, 85%);
+        .iconBox{
+            background-color: hsl(43, 100%, 65%);
+            i{
+                color: white;
+            }
+        }
+        h5{
+            color: hsl(43, 100%, 35%);
+        }
+        span{
+            color: hsl(43, 100%, 50%);
+        }
+    }
+    .rpt{
+        cursor: pointer;
+        background-color: hsl(90, 100%, 75%);
+        .iconBox{
+            background-color: hsl(90, 100%, 45%);
+            i{
+                color: white;
+            }
+        }
+        h5{
+            color: hsl(90, 100%, 35%)
+        }
+        span{
+            color: hsl(90, 100%, 40%);
+        }
+    }
+
+
+    #paginationUserDashboard{
+        margin: 10px auto;
+        #prevPage, #nextPage{
+            width: 50px;
+            height: 30px;
+            background-color: hsl(0, 0%, 98%);
+        }
+        .paginationNum{
+            width: 30px;
+            height: 30px;
+            margin: 0 5px;
+            cursor: pointer;
+            background-color: hsl(0, 0%, 92%);
+            &.active{
+                background-color: hsl(0, 0%, 98%);
+            }
+        }
+        #prevPage, #nextPage, .paginationNum{
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    #searchUser{
+        font-size: .9em;
+        border-radius: 5px;
+        height: 30px;
+        &:focus{
+            outline: none;
+        }
+    }
+    #channelSelect{
+        font-size: .9em;
+        border-radius: 5px;
+        width: 120px;
+        height: 30px;
+    }
+    #listsPerPage{
+        display: flex;
+        margin-right: 10px;
+        span{
+            width: 100%;
+            color: hsl(0, 0%, 36%);
+            font-size: .8em;
+            margin-left: 10px;
+        }
+    }
+    .tabsWrapper{
+        display: flex;
+        width: 100%;
+        .tabItem{
+            user-select: none;
+            flex: 1 0 auto;
+            margin: 2px;
+            display: block;
+            min-width: 40px;
+            width: calc(25% - 4px);
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 5px 15px 5px 5px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            font-size: .7em;
+            color: hsl(0, 0%, 30%);
+            position: relative;
+            &.active{
+                background-color: hsl(0, 0%, 94%);
+                box-shadow: 0 -2px 4px -1px hsla(0, 0%, 50%, .3);
+            }
+            &:hover{
+                background-color: hsl(0, 0%, 81%);
+            }
+            &::after{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                content: '✖';
+                font-size: 1em;
+                top: 0;
+                bottom: 0;
+                right: 5px;
+                cursor: pointer;
+            }
+        }
+    }
+    .tableWrapper{
+        border-radius: 10px;
+        overflow-x: auto;
+        #tbOp{
+            display: table;
+            min-width: max-content;
+            font-size: .9em;
+            th{
+                background-color: hsl(199, 54%, 63%);
+                color: hsl(200, 100%, 24%);
+                .ascdesBtn{
+                    margin-left: 5px;
+                }
+            }
+            th, td{
+                border: none;
+            }
+            tr{
+                &:nth-child(odd){
+                    background-color: hsl(0, 0%, 97%);
+                }
+                &:nth-child(even){
+                    background-color: hsl(0, 0%, 95%);
+                }
+            }
+            td{
+                padding: 15px;
+                .statusName{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: auto;
+                    color: white;
+                    border-radius: 5px;
+                    font-weight: 500;
+                    letter-spacing: 1.2px;
+                    &.normal{
+                        background-color: var(--green);
+                    }
+                    &.warning{
+                        background-color: orange;
+                    }
+                    &.banned{
+                        background-color: red;
+                    }
+                }
+                @media screen and (max-width: 576px) {
+                    padding: 10px 15px;
+                    font-size: .8em;
+                }
+            }
+            .actionBtns{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .actionStatusBtn{
+                    margin: 0 10px;
+                }
+            }
+        }
+    }
+}
+
+.actionStatusBtn{
+    font-size: 1.4em;
+    color: hsl(0, 0%, 85%);
+    &.normal{
+        &.active{
+            color: var(--green);
+        }
+    }
+    &.warning{
+        &.active{
+            color: orange;
+        }
+    }
+    &.banned{
+        &.active{
+            color: red;
+        }
+    }
+    &.pm{
+        color: blue;
+        position: relative;
+        &[data-pm="true"]{
+            &::after{
+                content: '';
+                display: block;
+                position: absolute;
+                clear: both;
+                top: 3px;
+                right: -5px;
+                font-size: .5em;
+                background-color: red;
+                color: white;
+                border-radius: 50%;
+                width: 10px;
+                height: 10px;
+            }
+        }
+    }
+}

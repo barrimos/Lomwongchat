@@ -1,0 +1,238 @@
+.displayChat {
+  background: linear-gradient(to bottom, #3d0066, #2001ad);
+  width: 100%;
+  height: calc(100vh - 90px);
+  display: block;
+  padding: 10px 20px;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -mz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+@media screen and (min-width: 767px) {
+  .displayChat {
+    height: calc(100vh - 50px);
+  }
+}
+@media screen and (min-width: 767px) {
+  .displayChat.useReply {
+    height: calc(100vh - 100px) !important;
+  }
+}
+.displayChat .outerBubblesWrapper {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+.displayChat .outerBubblesWrapper::-webkit-scrollbar {
+  display: none;
+}
+.displayChat .bubbleWrapper {
+  font-size: 0.9em;
+  position: relative;
+  min-width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -mz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.displayChat .bubbleWrapper .messageWrapper {
+  position: relative;
+  max-width: 60%;
+  margin-bottom: 10px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -mz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.displayChat .bubbleWrapper .messageWrapper.other {
+  float: left;
+}
+.displayChat .bubbleWrapper .messageWrapper.other #contextMenuWrapper {
+  left: 100%;
+  margin-left: 5px;
+}
+.displayChat .bubbleWrapper .messageWrapper.you {
+  float: right;
+}
+.displayChat .bubbleWrapper .messageWrapper.you #contextMenuWrapper {
+  right: 100%;
+  margin-right: 5px;
+}
+.displayChat .bubbleWrapper .messageWrapper.you #contextMenuWrapper, .displayChat .bubbleWrapper .messageWrapper.other #contextMenuWrapper {
+  top: 30px;
+}
+@media screen and (max-width: 576px) {
+  .displayChat .bubbleWrapper .messageWrapper.other #contextMenuWrapper {
+    left: 0;
+  }
+  .displayChat .bubbleWrapper .messageWrapper.you #contextMenuWrapper {
+    right: 0;
+  }
+}
+.displayChat .bubbleWrapper .messageWrapper .timestamp {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  font-size: 0.6em;
+}
+.displayChat .bubbleWrapper .messageWrapper .timestamp.other {
+  right: -35px;
+}
+.displayChat .bubbleWrapper .messageWrapper .timestamp.you {
+  left: -35px;
+}
+.displayChat .bubbleWrapper .messageWrapper .owner {
+  color: white;
+  font-size: 0.7em;
+  top: -20px;
+}
+.displayChat .bubbleWrapper .messageWrapper .owner.other {
+  text-align: left;
+}
+.displayChat .bubbleWrapper .messageWrapper .owner.you {
+  text-align: right;
+}
+.displayChat .bubbleWrapper .messageWrapper .message {
+  margin-top: 5px;
+  width: 100%;
+  padding: 10px 15px;
+  color: #333333;
+  font-size: 1em;
+  word-break: break-word;
+  white-space: pre-wrap;
+  letter-spacing: 1.2px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -mz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.displayChat .bubbleWrapper .messageWrapper .message.other {
+  border-radius: 0 10px 10px 10px;
+  background-color: #dcd6ff;
+}
+.displayChat .bubbleWrapper .messageWrapper .message.you {
+  border-radius: 10px 0 10px 10px;
+  background-color: #85ffb8;
+}
+.displayChat .bubbleWrapper .messageWrapper .message:active {
+  background-color: blue;
+}
+.displayChat .bubbleWrapper .messageWrapper .message .replyBubble {
+  border-bottom: 1px solid #2800b8;
+  padding-bottom: 10px;
+  cursor: pointer;
+  color: #1e94a9;
+  margin-bottom: 10px;
+}
+.displayChat .bubbleWrapper .messageWrapper .message .replyBubble + .msg {
+  margin-top: 10px;
+}
+.displayChat .bubbleWrapper .messageWrapper #contextMenuWrapper {
+  position: absolute;
+  display: flex;
+  background-color: #e6e6e6;
+  border-radius: 5px;
+  flex-wrap: wrap;
+  width: 165px;
+  overflow: hidden;
+  z-index: 1;
+}
+.displayChat .bubbleWrapper .messageWrapper #contextMenuWrapper .contextMenu {
+  width: 55px;
+  text-align: center;
+  font-size: 0.8em;
+  padding: 3px;
+  font-weight: 600;
+  color: #3a0070;
+  cursor: pointer;
+  border: 1px solid #999999;
+}
+.displayChat .bubbleWrapper .messageWrapper #contextMenuWrapper .contextMenu:hover {
+  color: #0400ff;
+}
+.displayChat .bubbleWrapper::after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+#replyForm {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  height: 50px;
+  width: 100%;
+  background-color: #e3e3e3;
+}
+#replyForm .replyFormItem.username {
+  min-width: 50px;
+  max-width: 100px;
+}
+#replyForm .replyFormItem.message {
+  width: 100%;
+  max-width: calc(100% - 140px);
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: #f2f2f2;
+}
+#replyForm .replyFormItem.username, #replyForm .replyFormItem.message {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#replyForm #closeReplyFormBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+#replyForm #closeReplyFormBtn:hover {
+  background-color: #b3b3b3;
+}
+
+.inpMessageWrapper {
+  position: relative;
+  bottom: 0;
+  display: flex;
+  min-width: 100%;
+  height: 50px;
+}
+.inpMessageWrapper .inpMessage {
+  border-left: 1px solid #999999;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  padding: 5px;
+  outline: none;
+  z-index: 1;
+}
+.inpMessageWrapper .submitMessageBtn {
+  z-index: 1;
+  width: 75px;
+  background-color: #ffc400;
+  color: #ff5e00;
+  font-size: 1.3em;
+}
+.inpMessageWrapper .toBottomBtn {
+  z-index: 0;
+  opacity: 0.9;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  transition: ease-in-out 0.3s;
+  background-color: #cfcfcf;
+}

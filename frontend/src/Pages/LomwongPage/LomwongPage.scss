@@ -1,0 +1,531 @@
+@mixin render_prefixes($props, $value){
+    @each $prefixes in ('-webkit-', '-moz-', '-mz-', '-o-', ''){
+        #{$prefixes}#{$props}: #{$value}
+    }
+}
+$iconOnlineSize: 8px;
+button, input, textarea, select{
+    border: none;
+}
+button{
+    background-color: transparent;
+}
+a:visited{
+    color: hsl(0, 0%, 24%);
+}
+#navbar{
+    width: 100%;
+    position: relative;
+    .btn{
+        width: 50px;
+        height: 40px;
+        background-color: hsl(0, 0%, 99%);
+        border-left: 1px solid gray;
+        border-right: 1px solid gray;
+        i, svg{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        &:hover{
+            background-color: hsl(0, 0%, 89%);
+        }
+        &+.btn{
+            border-left: none;
+        }
+    }
+    .exitBtn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .channelSelect{
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        cursor: pointer;
+        font-size: .8em;
+        &:focus{
+            outline: none;
+        }
+    }
+    #navListWrapper, .menuWrapper{
+        z-index: 3;
+        background-color: hsl(0, 0%, 96%);
+        position: absolute;
+        height: 0;
+        cursor: pointer;
+        &.active{
+            box-shadow: 0 12px 4px -4px hsla(232, 49%, 15%, 0.6);
+        }
+    }
+    #navListWrapper{
+        width: 180px;
+        overflow-y: scroll;
+        right: 50px;
+        padding: 0 5px;
+        max-height: 300px;
+        transition: height ease .3s;
+        .navLists{
+            font-size: .8em;
+            padding: 3px 0;
+            height: 40px;
+            div{
+                max-width: 70%;
+                text-overflow: ellipsis;
+                overflow-y: hidden;
+                white-space: nowrap;
+            }
+        }
+        .empty{
+            height: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: .8em;
+            color: hsl(0, 0%, 50%);
+        }
+        &.active{
+            height: auto;
+        }
+    }
+    .menuWrapper{
+        right: 0;
+        overflow: hidden;
+        font-size: .8em;
+        transition: height ease .3s;
+        .menuList{
+            .listMenuItemWrapper{
+                display: none;
+                &.active{
+                    display: block;
+                }
+            }
+            .listMenuItem{
+                color: hsl(0, 0%, 25%);
+                height: 40px;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 290px;
+                padding: 5px;
+                position: relative;
+                .slide{
+                    display: flex;
+                    align-items: center;
+                    position: relative;
+                    overflow: hidden;
+                    width: 290px;
+                    height: 100%;
+                    .controlSlideBtn{
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        height: 100%;
+                        width: 30px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        &:hover{
+                            background-color: hsl(0, 0%, 80%);
+                        }
+                        &.next{
+                            right: 0;
+                        }
+                        &.prev{
+                            left: 0;
+                        }
+                    }
+                    .item{
+                        display: none;
+                        &.active{
+                            display: block;
+                        }
+                    }
+                }
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+                .item{
+                    min-width: calc(290px - 10px);
+                    &.center{
+                        text-align: center;
+                    }
+                }
+                input{
+                    font-size: 1em;
+                }
+                i{
+                    display: block;
+                    min-width: 40px;
+                    height: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+                // &:hover{
+                //     background-color: hsl(240, 45%, 88%);
+                // }
+                &+.listMenuItem{
+                    border-top: 1px solid hsl(0, 0%, 80%);
+                }
+                &#navListsUser{
+                    height: auto;
+                    &::-webkit-scrollbar{
+                        display: none;
+                    }
+                    div{
+                        height: auto;
+                        max-height: 150px;
+                        overflow-y: scroll;
+                        width: 100%;
+                        min-height: 100%;
+                        &::-webkit-scrollbar{
+                            display: none;
+                        }
+                        .usersOnlineNavbarItem{
+                            display: block;
+                            width: 100%;
+                            height: 30px;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            padding: 0 5px;
+                            &::-webkit-scrollbar{
+                                display: none;
+                            }
+                            &+.usersOnlineNavbarItem{
+                                border-top: 1px solid hsl(0, 0%, 80%);
+                            }
+                        }
+                        :hover{
+                            background-color: hsl(0, 0%, 85%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #overlay{
+        display: block;
+        clear: both;
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 90px);
+        background-color: transparent;
+        top: 40px;
+        left: 0;
+        z-index: 1;
+    }
+}
+
+.inputWrapper{
+    width: 100%;
+    height: 100%;
+}
+
+
+.inpValueSearch{
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 1px solid lightgray;
+    padding-left: 5px;
+    font-size: .8em;
+    &::placeholder{
+        color: hsl(0, 0%, 70%);
+    }
+}
+
+.submitInp{
+    width: 60px;
+    height: 100%;
+    border: 1px solid lightgray;
+    font-size: .8em;
+}
+.errorBox{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    background-color: hsl(0, 100%, 98%);
+    border-radius: 0 0 5px 5px;
+    // font-size: .8em;
+    color: hsl(0, 100%, 60%);
+    letter-spacing: 1px;
+    font-weight: 500;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#asideProfile{
+    height: calc(100vh - 20px);
+    .profile{
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        h1{
+            max-width: 60%;
+            font-size: 1.5em;
+            font-weight: 900;
+            padding: 10px 0;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            @include render_prefixes('user-select', 'none');
+        }
+        .linkTicket{
+            padding: 5px;
+            color: blue;
+            cursor: pointer;
+        }
+    }
+    .pmListWrapper{
+        .personalMessageList{
+            height: calc(100vh - 56px);
+            overflow-y: scroll;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            .headPM{
+                font-size: .8em;
+                font-weight: 600;
+                margin-bottom: 10px;
+                color: hsl(0, 0%, 40%);
+            }
+            .pmListsWrapper{
+                width: 100%;
+                padding: 3px 5px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: .8em;
+                cursor: pointer;
+                color: hsl(0, 0%, 35%);
+                .pmName{
+                    padding: 5px 0;
+                    text-overflow: ellipsis;
+                    overflow-x: hidden;
+                    white-space: nowrap;
+                }
+                .deletePMBtn{
+                    display: none;
+                    color: hsl(0, 0%, 75%);
+                    padding: 5px;
+                    border-radius: 50%;
+                    background-color: white;
+                    &:hover{
+                        // background-color: hsl(0, 0%, 90%);
+                        color: hsl(0, 0%, 35%);
+                    }    
+                }
+                &:hover{
+                    background-color: hsl(0, 0%, 94%);
+                    .deletePMBtn{
+                        display: block;
+                    }
+                }
+            }
+            .empty{
+                height: calc(100% - 56px);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                font-size: .85em;
+                color: hsl(0, 0%, 40%);
+            }
+        }
+    }
+}
+
+.modal{
+    .reportForm{
+        max-height: 70%;
+        .reportTextArea{
+            margin-top: 10px;
+            padding: 5px;
+            font-size: .9em;
+            width: 100%;
+            max-width: calc(100% - 30px);
+            min-width: 100%;
+            height: 120px;
+            min-height: 120px;
+            max-height: 300px;
+            box-sizing: border-box;
+        }
+        .reportSubmitBtn, .reportCancelBtn{
+            display: block;
+            width: 80px;
+            line-height: 1em;
+            padding: 10px 5px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .reportSubmitBtn{
+            background-color: hsl(44, 96%, 51%);
+            color: hsl(0, 0%, 100%);
+            font-weight: 400;
+        }
+        .reportCancelBtn{
+            color: hsl(0, 0%, 44%);
+            background-color: hsl(0, 0%, 87%);
+        }
+    }
+    &.pmWrapper{
+        z-index: 2;
+        min-width: 70%;
+        &.active{
+            z-index: 3;
+        }
+        .displayChat{
+            max-height: 300px;
+        }
+    }
+}
+#asideMenu{
+    margin-left: 15px;
+    #inpAside{
+        display: flex;
+        height: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        position: relative;
+        .errorBox{
+            font-size: .8em;
+        }
+    }
+    .aside-menu{
+        height: 50px;
+        color: hsl(0, 0%, 24%);
+        .asideBtn{
+            font-size: .8em;
+            color: hsl(0, 0%, 40%);
+        }
+        .logoutBtn{
+            width: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: hsl(0, 90%, 70%);
+            color: white;
+            &:hover{
+                background-color: hsl(0, 100%, 70%);
+            }
+        }
+        .asideChannels, .asideUsers, .logoutBtn{
+            border-radius: 5px;
+            margin-top: 10px;
+            height: 40px;
+        }
+        .asideChannels, .asideUsers{
+            font-weight: 600;
+            font-size: .8em;
+            width: 80px;
+            background-color: white;
+            position: relative;
+            &::after{
+                display: block;
+                position: absolute;
+                left: 50%;
+                clear: both;
+                content: "";
+                width: 0;
+                height: 2px;
+                background-color: hsl(0, 0%, 35%);
+                transition: width ease .2s;
+                transform: translateX(-50%);
+            }
+            &:not(.active):hover{
+                background-color: hsl(0, 0%, 93%)
+            }
+            &.active{
+                &::after{
+                    width: 75%;
+                }
+            }
+
+            @media screen and(min-width: 992px) {
+                width: 100px;
+            }
+        }
+        .asideChannels{
+            
+        }
+        .asideUsers{
+            
+        }
+    }
+
+    #groupWrapper{
+        height: calc(100vh - 100px);
+        #groupList{
+            border: 1px solid gray;
+            height: calc(100% - 20px);
+            overflow-y: scroll;
+            display: flex;
+            flex-direction: column;
+            &::-webkit-scrollbar{
+                display: none;
+            }
+            .listsChannel, .listsUsers, .asideChatAdmin{
+                border-bottom: 1px solid rgb(211, 211, 211);
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: .8em;
+                color: hsl(0, 0%, 50%);
+                cursor: pointer;
+                &:hover{
+                    background-color: hsl(0, 0%, 90%);
+                    color: rgb(75, 75, 75);
+                }
+            }
+            .listsChannel{
+                .room{
+                    &.active{
+                        font-weight: 500;
+                        color: hsl(0, 0%, 31%);
+                    }
+                }
+            }
+            .listsUsers{
+                &.you{
+                    border-top: 1px solid rgb(211, 211, 211);
+                }
+            }
+            .asideChatAdmin{
+                background-color: transparent;
+                border-bottom: none;
+            }
+            .empty{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                text-align: center;
+                color: hsl(0, 0%, 40%);
+            }
+        }
+    }
+}
+
+i.fa{
+    &.fa-circle-o[data-is-online=true]{
+        font-size: $iconOnlineSize;
+        color: hsl(120, 100%, 50%);
+        &:before{
+            display: block;
+            width: $iconOnlineSize;
+            height: $iconOnlineSize;
+            background-color: hsl(120, 100%, 50%);
+            border-radius: 50%;
+        }
+    }
+}
